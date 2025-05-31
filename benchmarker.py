@@ -81,23 +81,3 @@ class Benchmarker:
             trials_success = counts.get(target, 0)
 
             return trials_success / trials
-
-
-if __name__ == "__main__":
-    NR_Q = 1
-    # DEPTH = 8
-    SHOTS = 1024
-    SEED = 42
-
-    for depth in range(2, 10):
-        b = Benchmarker(nr_qbits=NR_Q, seed=SEED, depth=depth, shots=SHOTS)
-        print(f"depth (seq + recovery): {depth}, result: {b.run_benchmark()}")
-
-    # DEBUG
-    # g = b.Generator()
-    # for _ in range(10):
-    #     s, r = g.gen_seq(DEPTH)
-    #     print("Sequence")
-    #     for gate in s:
-    #         print(gate)
-    #     print(f"Recovery gate: {r}")
